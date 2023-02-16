@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import NavBar from './components/NavBar.jsx';
+import AllUser from './components/AllUser.jsx';
+import AddUser from './components/AddUser.jsx';
+import Mern from './components/Mern';
+
+
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+      <BrowserRouter>
+      <NavBar/>
+      <Routes>
+<Route path='/' element={<Mern/>}/>
+<Route path='/add' element={<AddUser/>}/>
+<Route path='/all' element={<AllUser/>}/>
+</Routes>
+</BrowserRouter>
+  
   );
 }
 
