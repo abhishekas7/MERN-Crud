@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
+import { addUser } from "../services/api";
 
 const Formstyle = styled("InputLabel")({
   width: "50%",
@@ -35,8 +36,8 @@ const Adduser = () => {
         console.log(user);
     }
 
-const addUserDetails = () => {
-  
+const addUserDetails = async () => {
+  await addUser(user)
 }
 
     const [user, setUser] =useState(defaultValue);
