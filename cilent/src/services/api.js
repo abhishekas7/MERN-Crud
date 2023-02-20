@@ -10,3 +10,4 @@ export const addUser = async (data) =>{
         console.log('Error while calling addUser',error);
      } 
 }
+
