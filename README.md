@@ -53,3 +53,7 @@ Error mattan Coros pakage install chayunnu
 
 npm i cors
 
+npm i mongoose-auto-increment // increment primary key
+
+npm i body-parser //data fetching
+
