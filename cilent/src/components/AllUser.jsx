@@ -1,7 +1,9 @@
-import { TableBody, TableHead, TableRow } from '@mui/material';
+import styled from '@emotion/styled';
+import { Button, TableBody, TableHead, TableRow } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableCell from '@mui/material/TableCell';
 import { useEffect,useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import {getUser} from '../services/api';
 
@@ -20,24 +22,31 @@ const getAllUsers = async () => {
       
     }
 
+    const THead = styled(TableRow)`
+background:lightblue;
+color:#00000;
+margin-top:20px;
+
+`
+
     return(  
  <Table>
-           <TableHead>
-          <TableRow>
-         
-            <TableCell>Id</TableCell>
+    <THead>
+    <TableCell>Id</TableCell>
             <TableCell>Name</TableCell>
             <TableCell>Email</TableCell>
-      
-          </TableRow>
-        </TableHead>
+            <TableCell colSpan={2}>Change</TableCell>
+    </THead>
+
         <TableBody>
             {
-                user.map(users => (
+                user.map(user => (
                     <TableRow>
-                       <TableCell>{users._id}</TableCell> 
-                       <TableCell>{users.name}</TableCell> 
-                       <TableCell>{users.email}</TableCell> 
+                       <TableCell>{user._id}</TableCell> 
+                       <TableCell>{user.name}</TableCell> 
+                       <TableCell>{user.email}</TableCell> 
+                       <TableCell><Button variant='contained' component={Link} to={`/edit/${user._id}`}>Edit</Button></TableCell> 
+                       <TableCell><Button variant='contained' color='secondary'>Delete</Button></TableCell> 
                     </TableRow>
                 ))
             }

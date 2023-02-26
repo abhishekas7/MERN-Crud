@@ -7,18 +7,22 @@ import {
   Input,
   InputLabel,
   styled,
+  TableRow,
 
 } from "@mui/material";
-import { useState } from "react";
-
-import { addUser } from "../services/api";
-import {useNavigate} from 'react'
+import { useState} from "react";
+import { addUser } from "../services/api" //api for adding
+import {useNavigate} from 'react-router-dom'
 const Formstyle = styled("InputLabel")({
-  width: "50%",
+  width: "90%",
   backgroundColor: "#000",
-  marginTop:'50px'
+  marginTop:'50px auto 0 auto'
 });
 
+const THead = styled(TableRow)`
+background:#000000;
+
+`
 
 
 const defaultValue = {
@@ -34,11 +38,14 @@ const Adduser = () => {
     const onValueChange = (e) =>{
         console.log(e.target.value);
         setUser({...user, [e.target.name] : e.target.value})
-        console.log(user);
+        // console.log(user);
     }
 
+const navigate = useNavigate();  
+
 const addUserDetails = async () => {
-  await addUser(user)
+  await addUser(user);
+  navigate('/all');
 }
 
 const [user, setUser] =useState(defaultValue);
@@ -47,7 +54,7 @@ const [user, setUser] =useState(defaultValue);
   return (
     <>
 
-
+<h1>Add User</h1>
       <Formstyle>
         <FormGroup></FormGroup>
       </Formstyle>

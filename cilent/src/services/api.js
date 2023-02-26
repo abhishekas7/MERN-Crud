@@ -19,3 +19,11 @@ export const getUser = async () =>{
    } 
 }
 
+export const getUserid = async (id) =>{
+   try {
+      return await axios.get(`${URL}/${id}`)
+   } catch (error) {
+      console.log('Error while calling singleUser', error);
+   } 
+}
+
