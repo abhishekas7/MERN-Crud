@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 
 import { addUser } from "../services/api";
-
+import {useNavigate} from 'react'
 const Formstyle = styled("InputLabel")({
   width: "50%",
   backgroundColor: "#000",
@@ -27,6 +27,7 @@ const defaultValue = {
     password:'',
 }
 
+
 // key : value 
 
 const Adduser = () => {
@@ -40,7 +41,7 @@ const addUserDetails = async () => {
   await addUser(user)
 }
 
-    const [user, setUser] =useState(defaultValue);
+const [user, setUser] =useState(defaultValue);
 
 
   return (

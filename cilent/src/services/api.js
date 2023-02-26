@@ -11,3 +11,11 @@ export const addUser = async (data) =>{
      } 
 }
 
+export const getUser = async () =>{
+   try {
+      return await axios.get(`${URL}/all`);
+   } catch (error) {
+      console.log('Error while calling viewUser',error);
+   } 
+}
+
