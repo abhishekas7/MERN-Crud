@@ -1,12 +1,10 @@
 const express = require('express');
 const app = express();
-const apiRoutes = require('./routes/api');
+const router = require('./routes/api');
 
-// Use the API routes
-app.use('/', apiRoutes);
+app.use('/', router);
 
-// Start the server
-const port = 5000; // Choose the desired port number
+const port = 5000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
