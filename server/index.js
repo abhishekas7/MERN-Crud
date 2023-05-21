@@ -1,27 +1,12 @@
-import express from 'express';
-import '..//server/database/db.js'
-import dotenv from 'dotenv';
-import Routes from './routes/routes.js';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-
-
-
+const express = require('express');
 const app = express();
+const apiRoutes = require('./routes/api');
 
-dotenv.config();
+// Use the API routes
+app.use('/', apiRoutes);
 
-app.use(bodyParser.json())
-app.use(cors());
-
-const PORT = 8000;
-
-
-app.use('/',Routes)
-app.use(bodyParser.json({ extended: true })); // for parsing 
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing 
-
-
-app.listen(PORT,(req,res) => console.log(`Server is running on PORT ${PORT}`));
-
-
+// Start the server
+const port = 5000; // Choose the desired port number
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
